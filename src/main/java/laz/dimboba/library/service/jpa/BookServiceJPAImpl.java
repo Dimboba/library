@@ -19,14 +19,17 @@ public class BookServiceJPAImpl implements BookService {
     private final BookRepository bookRepository;
 
     @Override
-    public Book getBook(UUID id) {
-        return bookRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException("There is no book with id = " + id));
+    public Book getBook(UUID bookId) {
+        return bookRepository.findById(bookId)
+                .orElseThrow(() -> new NotFoundException("There is no book with id = " + bookId));
     }
 
     @Override
     public List<Book> getBooksByTitleAndAuthor(String title, String author) {
-        return bookRepository.findAllByTitleAndAuthor(title, author);
+        return bookRepository.findAllByTitleContainingIgnoreCaseAndAuthorContainingIgnoreCase(
+                title,
+                author
+        );
     }
 
     @Override
