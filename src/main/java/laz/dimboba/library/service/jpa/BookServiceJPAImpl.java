@@ -21,7 +21,7 @@ public class BookServiceJPAImpl implements BookService {
     @Override
     public Book getBook(UUID bookId) {
         return bookRepository.findById(bookId)
-                .orElseThrow(() -> new NotFoundException("There is no book with id = " + bookId));
+                .orElseThrow(() -> new NotFoundException("Book with id = " + bookId + " not found"));
     }
 
     @Override

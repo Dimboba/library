@@ -20,7 +20,7 @@ public class CustomerServiceJPAImpl implements CustomerService {
     @Override
     public Customer getCustomer(UUID customerId) {
         return customerRepository.findById(customerId)
-                .orElseThrow(() -> new NotFoundException("There is no customer with id = " + customerId));
+                .orElseThrow(() -> new NotFoundException("Customer with id = " + customerId + " not found"));
     }
 
     @Override
