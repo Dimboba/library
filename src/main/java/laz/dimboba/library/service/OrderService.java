@@ -6,11 +6,11 @@ import java.util.UUID;
 
 public interface OrderService {
 
-    Order getOrder(UUID id);
+    Order getOrder(UUID orderId);
 
     Order createOrder(
             UUID customerId,
-            UUID orderId
+            UUID bookId
     );
 
     void returnBook(UUID orderId);
