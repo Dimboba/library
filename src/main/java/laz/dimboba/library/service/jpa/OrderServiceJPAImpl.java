@@ -8,8 +8,8 @@ import java.util.UUID;
 
 public class OrderServiceJPAImpl implements OrderService {
     @Override
-    public Optional<Order> getOrder(UUID id) {
-        return Optional.empty();
+    public Order getOrder(UUID id) {
+        return null;
     }
 
     @Override

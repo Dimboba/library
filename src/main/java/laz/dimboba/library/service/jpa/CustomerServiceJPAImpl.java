@@ -9,8 +9,8 @@ import java.util.UUID;
 
 public class CustomerServiceJPAImpl implements CustomerService {
     @Override
-    public Optional<Customer> getCustomer(UUID customerId) {
-        return Optional.empty();
+    public Customer getCustomer(UUID customerId) {
+        return null;
     }
 
     @Override
