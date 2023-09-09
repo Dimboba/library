@@ -3,12 +3,11 @@ package laz.dimboba.library.service;
 import laz.dimboba.library.entity.Customer;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 public interface CustomerService {
 
-    Optional<Customer> getCustomer(UUID customerId);
+    Customer getCustomer(UUID customerId);
 
     List<Customer> getCustomersByFirstNameAndLastName(
             String firstName,
