@@ -1,7 +1,7 @@
 package laz.dimboba.library.service.jpa;
 
-import laz.dimboba.library.Exceptions.AlreadyExistException;
-import laz.dimboba.library.Exceptions.NotFoundException;
+import laz.dimboba.library.exceptions.AlreadyExistException;
+import laz.dimboba.library.exceptions.NotFoundException;
 import laz.dimboba.library.dao.BookRepository;
 import laz.dimboba.library.entity.Book;
 import laz.dimboba.library.service.BookService;
@@ -9,7 +9,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @Service

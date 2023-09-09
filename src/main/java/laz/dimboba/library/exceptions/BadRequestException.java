@@ -1,4 +1,4 @@
-package laz.dimboba.library.Exceptions;
+package laz.dimboba.library.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

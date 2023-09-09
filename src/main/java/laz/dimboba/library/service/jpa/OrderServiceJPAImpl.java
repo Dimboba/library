@@ -1,6 +1,6 @@
 package laz.dimboba.library.service.jpa;
 
-import laz.dimboba.library.Exceptions.NotFoundException;
+import laz.dimboba.library.exceptions.NotFoundException;
 import laz.dimboba.library.dao.OrderRepository;
 import laz.dimboba.library.entity.Book;
 import laz.dimboba.library.entity.Customer;
@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
 import java.time.Instant;
-import java.util.Optional;
 import java.util.UUID;
 
 @Service
