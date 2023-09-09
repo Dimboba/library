@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.UUID;
 
 public interface CustomerRepository extends JpaRepository<Customer, UUID> {
-    List<Customer> findAllByFirstNameContainingIgnoreCaseAAndLastNameContainingIgnoreCase(
+    List<Customer> findAllByFirstNameContainingIgnoreCaseAndLastNameContainingIgnoreCase(
             String firstName,
             String lastName
             );

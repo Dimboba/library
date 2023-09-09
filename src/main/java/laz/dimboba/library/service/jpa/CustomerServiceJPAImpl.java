@@ -24,7 +24,7 @@ public class CustomerServiceJPAImpl implements CustomerService {
 
     @Override
     public List<Customer> getCustomersByFirstNameAndLastName(String firstName, String lastName) {
-        return customerRepository.findAllByFirstNameContainingIgnoreCaseAAndLastNameContainingIgnoreCase(
+        return customerRepository.findAllByFirstNameContainingIgnoreCaseAndLastNameContainingIgnoreCase(
                 firstName,
                 lastName
         );
