@@ -28,6 +28,9 @@ public class Order {
     @JoinColumn(name = "book_id")
     private Book book;
 
+    @Column(name = "returned")
+    private boolean returned;
+
     @Column(name = "order_timestamp")
     private Timestamp orderTimestamp;
 
