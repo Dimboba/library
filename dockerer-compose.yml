@@ -1,0 +1,11 @@
+services:
+  db:
+    image: 'postgres:13.1-alpine'
+    container_name: db
+    environment:
+      POSTGRES_DB: "library"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "qwe"
+      POSTGRES_ROOT_PASSWORD: "qwe"
+    ports:
+      - "5432:5432"
