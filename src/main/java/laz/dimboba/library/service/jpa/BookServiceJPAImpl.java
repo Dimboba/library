@@ -1,6 +1,6 @@
 package laz.dimboba.library.service.jpa;
 
-import laz.dimboba.library.exceptions.AlreadyExistException;
+import laz.dimboba.library.exceptions.AlreadyExistsException;
 import laz.dimboba.library.exceptions.NotFoundException;
 import laz.dimboba.library.dao.BookRepository;
 import laz.dimboba.library.entity.Book;
@@ -34,7 +34,7 @@ public class BookServiceJPAImpl implements BookService {
     @Override
     public Book saveBook(Book book) {
         if(bookRepository.existsById(book.getId())){
-            throw new AlreadyExistException("Book with id = " + book.getId() + " already exists");
+            throw new AlreadyExistsException("Book with id = " + book.getId() + " already exists");
         }
         return bookRepository.save(book);
     }

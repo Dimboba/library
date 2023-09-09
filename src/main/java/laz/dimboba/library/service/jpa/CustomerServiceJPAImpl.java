@@ -1,6 +1,6 @@
 package laz.dimboba.library.service.jpa;
 
-import laz.dimboba.library.exceptions.AlreadyExistException;
+import laz.dimboba.library.exceptions.AlreadyExistsException;
 import laz.dimboba.library.exceptions.NotFoundException;
 import laz.dimboba.library.dao.CustomerRepository;
 import laz.dimboba.library.entity.Customer;
@@ -33,7 +33,7 @@ public class CustomerServiceJPAImpl implements CustomerService {
     @Override
     public Customer saveCustomer(Customer customer) {
         if(customerRepository.existsById(customer.getId())){
-            throw new AlreadyExistException("Customer with id = " + customer.getId() + " already exists");
+            throw new AlreadyExistsException("Customer with id = " + customer.getId() + " already exists");
         }
         return customerRepository.save(customer);
     }
