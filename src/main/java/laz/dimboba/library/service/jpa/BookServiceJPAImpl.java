@@ -33,9 +33,9 @@ public class BookServiceJPAImpl implements BookService {
 
     @Override
     public Book saveBook(Book book) {
-        if(bookRepository.existsById(book.getId())){
-            throw new AlreadyExistsException("Book with id = " + book.getId() + " already exists");
-        }
+//        if(book.getId() != null && bookRepository.existsById(book.getId())){
+//            throw new AlreadyExistsException("Book with id = " + book.getId() + " already exists");
+//        }
         return bookRepository.save(book);
     }
 

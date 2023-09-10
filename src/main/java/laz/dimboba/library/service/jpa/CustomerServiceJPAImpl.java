@@ -32,9 +32,9 @@ public class CustomerServiceJPAImpl implements CustomerService {
 
     @Override
     public Customer saveCustomer(Customer customer) {
-        if(customerRepository.existsById(customer.getId())){
-            throw new AlreadyExistsException("Customer with id = " + customer.getId() + " already exists");
-        }
+//        if(customerRepository.existsById(customer.getId())){
+//            throw new AlreadyExistsException("Customer with id = " + customer.getId() + " already exists");
+//        }
         return customerRepository.save(customer);
     }
 
