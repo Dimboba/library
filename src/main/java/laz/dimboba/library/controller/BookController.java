@@ -57,4 +57,21 @@ public class BookController {
                         .toList()
         );
     }
+
+    @PutMapping
+    public ResponseEntity<BookDTO> updateBook(
+            @RequestBody BookDTO bookDTO
+    ) {
+        return ResponseEntity.ok(
+                bookDTOMapper.apply(
+                        bookService.updateBook(
+                                Book.builder()
+                                        .title(bookDTO.getTitle())
+                                        .id(bookDTO.getId())
+                                        .author(bookDTO.getAuthor())
+                                        .build()
+                        )
+                )
+        )
+    }
 }
