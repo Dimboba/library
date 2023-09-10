@@ -2,6 +2,7 @@ package laz.dimboba.library.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.sql.Timestamp;
 import java.util.UUID;
@@ -30,6 +31,7 @@ public class Order {
     private boolean returned;
 
     @Column(name = "order_timestamp")
+    @CreationTimestamp
     private Timestamp orderTimestamp;
 
     @Column(name = "return_timestamp")

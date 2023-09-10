@@ -13,10 +13,10 @@ public interface OrderService {
             UUID bookId
     );
 
-    void returnBook(
+    Order returnBook(
             UUID customerId,
             UUID bookId
     );
 
-    void returnBook(UUID orderId);
+    Order returnBook(UUID orderId);
 }

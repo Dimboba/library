@@ -41,7 +41,7 @@ public class OrderServiceJPAImpl implements OrderService {
     }
 
     @Override
-    public void returnBook(UUID customerId, UUID bookId) {
+    public Order returnBook(UUID customerId, UUID bookId) {
         Order order = orderRepository.findFirstByBookIdAndCustomerIdAndReturnedIsFalse(
                 bookId,
                 customerId
@@ -50,16 +50,16 @@ public class OrderServiceJPAImpl implements OrderService {
         order.setReturned(true);
         order.setReturnTimestamp(Timestamp.from(Instant.now()));
 
-        orderRepository.save(order);
+        return orderRepository.save(order);
     }
 
     @Override
-    public void returnBook(UUID orderId) {
+    public Order returnBook(UUID orderId) {
         Order order = getOrder(orderId);
 
         order.setReturned(true);
         order.setReturnTimestamp(Timestamp.from(Instant.now()));
 
-        orderRepository.save(order);
+        return orderRepository.save(order);
     }
 }
