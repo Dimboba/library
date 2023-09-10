@@ -41,6 +41,19 @@ public class OrderServiceJPAImpl implements OrderService {
     }
 
     @Override
+    public void returnBook(UUID customerId, UUID bookId) {
+        Order order = orderRepository.findFirstByBookIdAndCustomerIdAndReturnedIsFalse(
+                bookId,
+                customerId
+        ).orElseThrow(() -> new NotFoundException("Order for bookId = " + bookId + " and customerId = " + customerId + " not found"));
+
+        order.setReturned(true);
+        order.setReturnTimestamp(Timestamp.from(Instant.now()));
+
+        orderRepository.save(order);
+    }
+
+    @Override
     public void returnBook(UUID orderId) {
         Order order = getOrder(orderId);
 
