@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @AllArgsConstructor
@@ -41,6 +42,19 @@ public class BookController {
                 bookDTOMapper.apply(
                         bookService.getBook(id)
                 )
+        );
+    }
+
+    @GetMapping
+    public ResponseEntity<List<BookDTO>> getBooksByName(
+        @RequestParam(value = "title", defaultValue = "") String title,
+        @RequestParam(value = "author", defaultValue = "") String author
+    ){
+        return ResponseEntity.ok(
+                bookService.getBooksByTitleAndAuthor(title, author)
+                        .stream()
+                        .map(bookDTOMapper::apply)
+                        .toList()
         );
     }
 }
