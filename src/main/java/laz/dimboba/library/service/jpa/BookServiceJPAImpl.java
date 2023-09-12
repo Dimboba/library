@@ -8,6 +8,7 @@ import laz.dimboba.library.service.BookService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.UUID;
 
@@ -45,5 +46,16 @@ public class BookServiceJPAImpl implements BookService {
             throw new NotFoundException("Book with id = " + book.getId() + " not found");
         }
         return bookRepository.save(book);
+    }
+
+    @Override
+    public Book getMostPopularBook(Timestamp from, Timestamp to) {
+
+        System.out.println(from.toString());
+        System.out.println(to.toString());
+
+
+        return bookRepository.findTheMostPopularBook(from, to)
+                .orElseThrow(() -> new NotFoundException("There is no orders"));
     }
 }

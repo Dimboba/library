@@ -2,6 +2,7 @@ package laz.dimboba.library.service;
 
 import laz.dimboba.library.entity.Book;
 
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.UUID;
 
@@ -18,5 +19,9 @@ public interface BookService {
 
     Book updateBook(Book book);
 
+    Book getMostPopularBook(
+            Timestamp from,
+            Timestamp to
+    );
 
 }

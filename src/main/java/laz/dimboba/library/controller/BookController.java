@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
 
@@ -30,6 +32,23 @@ public class BookController {
                                     .author(bookDTO.getAuthor())
                                     .build()
                     )
+                )
+        );
+    }
+
+
+    //Time in millis
+    @GetMapping("/popular")
+    public ResponseEntity<BookDTO> getMostPopularBook(
+            @RequestParam(value = "from") Long from,
+            @RequestParam(value = "to") Long to
+    ){
+        return ResponseEntity.ok(
+                bookDTOMapper.apply(
+                        bookService.getMostPopularBook(
+                                Timestamp.from(Instant.ofEpochMilli(from)),
+                                Timestamp.from(Instant.ofEpochMilli(to))
+                        )
                 )
         );
     }
@@ -57,6 +76,7 @@ public class BookController {
                         .toList()
         );
     }
+
 
     @PutMapping
     public ResponseEntity<BookDTO> updateBook(

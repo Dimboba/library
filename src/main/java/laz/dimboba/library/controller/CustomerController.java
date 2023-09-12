@@ -9,6 +9,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
 
@@ -31,6 +33,21 @@ public class CustomerController {
                                         .lastName(customerDTO.getLastName())
                                         .gender(customerDTO.getGender())
                                         .build()
+                        )
+                )
+        );
+    }
+
+    @GetMapping("/popular")
+    public ResponseEntity<CustomerDTO> getMostPopularBook(
+            @RequestParam(value = "from") Long from,
+            @RequestParam(value = "to") Long to
+    ){
+        return ResponseEntity.ok(
+                customerDTOMapper.apply(
+                        customerService.getMostReadingCustomer(
+                                Timestamp.from(Instant.ofEpochMilli(from)),
+                                Timestamp.from(Instant.ofEpochMilli(to))
                         )
                 )
         );
