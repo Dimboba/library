@@ -1,4 +1,12 @@
 services:
+  server:
+    build:
+      context: .
+    container_name: library
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
   db:
     image: 'postgres:13.1-alpine'
     container_name: db
@@ -9,3 +17,4 @@ services:
       POSTGRES_ROOT_PASSWORD: "qwe"
     ports:
       - "5432:5432"
+
