@@ -18,9 +18,13 @@ spring:
     username: postgres
     password: qwe
     driver-class-name: org.postgresql.Driver
-```
+``` 
 - запустить базу данных
 ```
 docker compose up -d db 
 ```
 - запустить класс ```LibraryApplicationTests```
+
+
+## Дополнение
+Для запросов по поиску самой популярной книги и самого читающего посетителя время задаётся число миллисекунд 
